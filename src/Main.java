@@ -2,65 +2,40 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        System.out.println("1 задание. Объявление трёх массивов");//Объявление трёх массивов
-        int[] arrInt = new int[]{1, 2, 3};//Целочисленный массив с элементами 1,2,3 объявленный через new
-        double[] arrDouble = {1.57d, 7.654d, 9.986d};//Массив для дробных чисел
-        char[] arrChar = new char[]{'\u4f60', '\u597d', '\u5417'};//Массив с символами (китайские иероглифы)
+        System.out.println("1 задание. Бухгалтеры попросили посчитать сумму всех выплат за месяц.");
 
-        System.out.println("2 задание. Распечатать элементы каждого массива в строку по порядку через запятую ");
-        //Вывод элементов целочисленного массива
-        for (int i = 0; i < arrInt.length; i++) {
-            if (i > 0) {
-                System.out.print(", ");//Запятая нужна лишь между элементами массива. В конце она нам не нужна
+        int[] costs = {1000, 2000, 3000, 4000, 5000};//Целочисленный массив с пятью элементами
+        int sum = 0;
+
+        for (int fee : costs) {
+            if (fee > 0) {
+                sum += fee;
             }
-            System.out.print(arrInt[i]);
         }
-        System.out.println();
-        //Вывод элементов массива с дробными числами
-        for (int i = 0; i < arrDouble.length; i++) {
-            if (i > 0) {
-                System.out.print(", ");
+
+        System.out.println("Сумма трат за месяц составила " + sum + " рублей");
+
+        System.out.println("2 задание. Бухгалтерия попросила найти минимальную и максимальную траты за неделю");
+        int maxWastes = costs[0]; //Переменная с максимальным расходом
+        int minWastes = costs[0]; //Переменная с минимальным расходом
+        for (int i = 1; i < costs.length; i++) {
+            if (costs[i] < minWastes) {
+                minWastes = costs[i];
             }
-            System.out.print(arrDouble[i]);
+            if (costs[i] > maxWastes) {
+                maxWastes = costs[i];
+            }
         }
-        System.out.println();
-        //Вывод элементов массива с символами
-        for (int i = 0; i < arrChar.length; i++) {
-            if (i > 0) {
-                System.out.print(", ");
-            }
-            System.out.print(arrChar[i]);
-        }
-        System.out.println("\n3 задание. Распечатайте на отдельной строчке элементы каждого массива в обратном порядке через запятую. В конце строки запятую ставить не надо.");
-        //Вывод элементов целочисленного массива
-        for (int i = arrInt.length - 1; i >= 0; i--) {
-            if (i < arrInt.length - 1) {
-                System.out.print(", ");
-            }
-            System.out.print(arrInt[i]);
-        }
-        System.out.println();
-        //Вывод элементов массива с дробными числами
-        for (int i = arrDouble.length - 1; i >= 0; i--) {
-            if (i < arrDouble.length - 1) {
-                System.out.print(", ");
-            }
-            System.out.print(arrDouble[i]);
-        }
-        System.out.println();
-        //Вывод элементов массива с символами
-        for (int i = arrChar.length - 1; i >= 0; i--) {
-            if (i < arrChar.length - 1) {
-                System.out.print(", ");
-            }
-            System.out.print(arrChar[i]);
-        }
-        System.out.println("\n4 Задание. Сделать все нечетные числа целочисленного массива четными, прибавив к их значению единицу через цикл");
-        for (int i = 0; i < arrInt.length; i++) {
-            if ((arrInt[i] % 2) != 0) {
-                arrInt[i]++;
-            }
-            System.out.print(arrInt[i]);
+        System.out.println("Минимальная сумма трат за неделю составила " + minWastes + " рублей. Максимальная сумма трат за неделю составила " + maxWastes + " рублей");
+
+        System.out.println("3 задание. Бухгалтерия хочет понять, какую в среднем сумму компания тратила еженедельно");
+        int averageCosts = sum / costs.length;
+        System.out.println("Средняя сумма трат за месяц составила " + averageCosts + " рублей");
+
+        System.out.println("4 задание. Бага с именем.  ");
+        char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
+        for (int i = 10 ; i < reverseFullName.length && i>-1; i--){
+            System.out.print(reverseFullName[i]);
         }
     }
 }
