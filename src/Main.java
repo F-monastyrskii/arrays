@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -33,9 +35,18 @@ public class Main {
         System.out.println("Средняя сумма трат за месяц составила " + averageCosts + " рублей");
 
         System.out.println("4 задание. Бага с именем.  ");
-        char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
-        for (int i = 10 ; i < reverseFullName.length && i>-1; i--){
-            System.out.print(reverseFullName[i]);
+        char[] reverseFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
+        int i = 0;
+        int j = reverseFullName.length - 1;
+        char temp;
+        while (j > i) {
+            temp = reverseFullName[j];
+            reverseFullName[j] = reverseFullName[i];
+            reverseFullName[i] = temp;
+            j--;
+            i++;
         }
+        System.out.println(reverseFullName);
     }
 }
+
